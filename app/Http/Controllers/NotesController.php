@@ -51,4 +51,9 @@ class NotesController extends Controller
         note::where('id', $id)->update($data);
         return redirect()->route('notes-index');
     }
+    public function destroy($id)
+    {
+        note::where('id', $id)->first()->delete();
+        return redirect()->route('notes-index');
+    }
 }

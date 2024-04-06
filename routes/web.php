@@ -20,6 +20,7 @@ Route::prefix('/notes')->group(function() {
     Route::post('/', [NotesController::class, 'store'])->name('notes-store');
     Route::get('/{id}/edit', [NotesController::class, 'edit'])->where('id','[0-9]+')->name('notes-edit');
     Route::put('/{id}', [NotesController::class, 'update'])->where('id','[0-9]+')->name('notes-update');
+    Route::delete('/{id}', [NotesController::class, 'destroy'])->where('id','[0-9]+')->name('notes-destroy');
 });
 
 Route::fallback(function(){
